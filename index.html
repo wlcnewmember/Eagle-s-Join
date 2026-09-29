@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Eagle's | Official Selection</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -38,7 +38,7 @@
       letter-spacing: -0.01em;
     }
 
-    /* ===== LUXURY BACKGROUND ===== */
+    /* ===== BACKGROUND ===== */
     .bg-luxury {
       position: fixed;
       top: 0;
@@ -65,7 +65,6 @@
       0% { transform: rotate(0deg) scale(1); }
       100% { transform: rotate(8deg) scale(1.05); }
     }
-    /* Vignette */
     .bg-luxury::after {
       content: '';
       position: absolute;
@@ -78,21 +77,22 @@
       pointer-events: none;
     }
 
-    /* ===== WATERMARK EAGLE ===== */
+    /* ===== WATERMARK ===== */
     .watermark-eagle {
       position: fixed;
       top: 50%;
-      right: -120px;
-      transform: translateY(-50%) rotate(-15deg);
-      font-size: 40rem;
-      color: rgba(168, 85, 247, 0.02);
+      right: -200px;
+      transform: translateY(-50%) rotate(-10deg);
+      width: 700px;
+      height: 700px;
+      opacity: 0.02;
       z-index: -1;
       pointer-events: none;
       user-select: none;
-      filter: blur(2px);
+      filter: blur(1px);
+      object-fit: contain;
     }
 
-    /* ===== CONTAINER ===== */
     .container {
       max-width: 1150px;
       margin: 0 auto;
@@ -101,7 +101,7 @@
       z-index: 2;
     }
 
-    /* ===== NAVBAR LUXURY ===== */
+    /* ===== NAVBAR ===== */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -131,37 +131,24 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      letter-spacing: 0.02em;
     }
     .navbar .brand .eagle-mark {
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      background: linear-gradient(135deg, rgba(28, 20, 40, 0.9), rgba(15, 11, 24, 0.7));
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
-      box-shadow: 0 4px 20px rgba(168, 85, 247, 0.3), inset 0 1px 0 rgba(255,255,255,0.15);
+      box-shadow: 0 4px 20px rgba(168, 85, 247, 0.25), inset 0 1px 0 rgba(255,255,255,0.08);
       border: 1px solid rgba(192, 132, 252, 0.3);
+      overflow: hidden;
     }
-    .navbar .brand .eagle-mark i {
-      color: #fff;
-      font-size: 1.1rem;
-      filter: drop-shadow(0 0 4px rgba(255,255,255,0.4));
-    }
-    .navbar .brand .eagle-mark::after {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--gold), transparent 60%);
-      z-index: -1;
-      opacity: 0.5;
+    .navbar .brand .eagle-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     .navbar .brand .brand-text {
       display: flex;
@@ -169,20 +156,23 @@
       line-height: 1;
     }
     .navbar .brand .brand-text .main {
-      font-weight: 700;
-      background: linear-gradient(135deg, #fff 40%, var(--accent-bright));
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      background: linear-gradient(135deg, #fff 40%, var(--gold-bright));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
     .navbar .brand .brand-text .tag {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.55rem;
-      color: var(--text-tertiary);
-      letter-spacing: 0.25em;
+      font-family: 'Cinzel', serif;
+      font-size: 0.5rem;
+      color: var(--gold);
+      letter-spacing: 0.35em;
       text-transform: uppercase;
-      font-weight: 500;
-      margin-top: 3px;
+      font-weight: 600;
+      margin-top: 4px;
     }
     .nav-links {
       display: flex;
@@ -192,13 +182,15 @@
     .nav-links a {
       color: var(--text-secondary);
       text-decoration: none;
+      font-family: 'Cinzel', serif;
       font-size: 0.78rem;
       font-weight: 500;
       padding: 8px 16px;
       border-radius: 10px;
       transition: all 0.25s;
       cursor: pointer;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
     .nav-links a:hover,
     .nav-links a.active {
@@ -206,7 +198,6 @@
       color: var(--accent-bright);
     }
 
-    /* ===== PAGE ===== */
     .page { display: none; animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
     .page.active { display: block; }
     @keyframes fadeIn {
@@ -214,25 +205,25 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ===== HERO LUXURY (ASIMETRIS) ===== */
+    /* ===== HERO ===== */
     .hero {
       display: grid;
       grid-template-columns: 1.3fr 1fr;
       gap: 60px;
       align-items: center;
       padding: 40px 0 60px;
-      position: relative;
     }
     .hero-left .eyebrow {
       display: flex;
       align-items: center;
       gap: 12px;
+      font-family: 'Cinzel', serif;
       font-size: 0.7rem;
       color: var(--gold);
-      letter-spacing: 0.3em;
+      letter-spacing: 0.4em;
       text-transform: uppercase;
       font-weight: 600;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
     .hero-left .eyebrow::before {
       content: '';
@@ -241,30 +232,31 @@
       background: linear-gradient(90deg, var(--gold), transparent);
     }
     .hero-left h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 5.5rem;
       font-weight: 600;
-      line-height: 1;
+      line-height: 0.95;
       letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #fff 20%, var(--accent-bright) 70%, var(--gold));
+      background: linear-gradient(135deg, #fff 20%, var(--accent-bright) 60%, var(--gold));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       font-style: italic;
     }
     .hero-left .subtitle {
+      font-family: 'Cinzel', serif;
       font-size: 0.75rem;
       color: var(--text-tertiary);
       letter-spacing: 0.4em;
       text-transform: uppercase;
       font-weight: 500;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
     .hero-left .motto {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      color: #b8a8d0;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: #c8b8e0;
       line-height: 1.6;
       font-style: italic;
       font-weight: 400;
@@ -279,14 +271,15 @@
       flex-wrap: wrap;
     }
 
-    /* ===== BUTTON LUXURY ===== */
+    /* ===== BUTTON ===== */
     .btn-primary {
       background: linear-gradient(135deg, var(--accent), var(--accent-dark));
       border: 1px solid rgba(192, 132, 252, 0.3);
       color: #fff;
-      font-weight: 700;
-      font-size: 0.85rem;
-      padding: 15px 36px;
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+      padding: 16px 36px;
       border-radius: 60px;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -294,9 +287,9 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
       box-shadow: 0 8px 24px rgba(168, 85, 247, 0.25), inset 0 1px 0 rgba(255,255,255,0.15);
-      letter-spacing: 0.02em;
       position: relative;
       overflow: hidden;
     }
@@ -313,24 +306,25 @@
     .btn-primary:hover::before { left: 100%; }
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 16px 40px rgba(168, 85, 247, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+      box-shadow: 0 16px 40px rgba(168, 85, 247, 0.4);
     }
 
     .btn-ghost {
       background: transparent;
       border: 1px solid var(--border-gold);
       color: var(--text-secondary);
+      font-family: 'Cinzel', serif;
       font-weight: 500;
-      font-size: 0.85rem;
-      padding: 15px 26px;
+      font-size: 0.8rem;
+      padding: 16px 28px;
       border-radius: 60px;
       cursor: pointer;
       transition: all 0.25s;
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-family: 'Inter', sans-serif;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
     }
     .btn-ghost:hover {
       background: rgba(201, 168, 76, 0.05);
@@ -338,16 +332,15 @@
       color: var(--gold-bright);
     }
 
-    /* ===== HERO RIGHT — LUXURY EMBLEM ===== */
+    /* ===== EMBLEM ===== */
     .hero-right {
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
     }
     .emblem {
-      width: 320px;
-      height: 320px;
+      width: 340px;
+      height: 340px;
       position: relative;
       display: flex;
       align-items: center;
@@ -379,8 +372,8 @@
       animation: rotateSlowReverse 45s linear infinite;
     }
     .emblem-core {
-      width: 200px;
-      height: 200px;
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
       background:
         radial-gradient(circle at 30% 30%, rgba(192, 132, 252, 0.15), transparent 60%),
@@ -389,15 +382,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
       box-shadow:
         0 0 60px rgba(168, 85, 247, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      overflow: hidden;
     }
-    .emblem-core i {
-      font-size: 5rem;
-      color: var(--accent-bright);
-      filter: drop-shadow(0 0 30px rgba(168, 85, 247, 0.6));
+    .emblem-core img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       animation: floatEagle 4s ease-in-out infinite;
     }
     @keyframes floatEagle {
@@ -417,20 +410,20 @@
     .section-title {
       text-align: center;
       margin: 60px 0 30px;
-      position: relative;
     }
     .section-title .small {
+      font-family: 'Cinzel', serif;
       font-size: 0.65rem;
       color: var(--gold);
-      letter-spacing: 0.4em;
+      letter-spacing: 0.5em;
       text-transform: uppercase;
       font-weight: 600;
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
     .section-title .big {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
       font-weight: 600;
       color: var(--text-primary);
       letter-spacing: -0.01em;
@@ -438,9 +431,10 @@
     }
     .section-title .big span {
       color: var(--accent-bright);
+      font-style: italic;
     }
 
-    /* ===== ADMIN CAROUSEL LUXURY ===== */
+    /* ===== CAROUSEL ===== */
     .admin-carousel {
       position: relative;
       max-width: 800px;
@@ -493,9 +487,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
       font-weight: 600;
+      font-style: italic;
       color: #fff;
       background:
         radial-gradient(circle at 30% 30%, rgba(192, 132, 252, 0.3), transparent 60%),
@@ -507,17 +502,19 @@
       text-transform: uppercase;
     }
     .admin-name {
+      font-family: 'Cinzel', serif;
       font-size: 1rem;
-      font-weight: 700;
+      font-weight: 600;
       color: var(--text-primary);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.08em;
     }
     .admin-role {
-      font-size: 0.65rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
       color: var(--gold);
       font-weight: 500;
-      margin-top: 4px;
-      letter-spacing: 0.15em;
+      margin-top: 6px;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
     }
     .carousel-btn {
@@ -552,17 +549,18 @@
       margin-bottom: 50px;
     }
     .page-header .small {
+      font-family: 'Cinzel', serif;
       font-size: 0.65rem;
       color: var(--gold);
-      letter-spacing: 0.4em;
+      letter-spacing: 0.5em;
       text-transform: uppercase;
       font-weight: 600;
       display: block;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
     .page-header h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
       font-weight: 600;
       font-style: italic;
       background: linear-gradient(135deg, #fff, var(--accent-bright));
@@ -592,26 +590,28 @@
       margin-top: 50px;
       flex-wrap: wrap;
     }
-    .stat-item { text-align: center; position: relative; }
+    .stat-item { text-align: center; }
     .stat-number {
       display: block;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
       font-weight: 600;
+      font-style: italic;
       color: var(--accent-bright);
       letter-spacing: -0.02em;
       line-height: 1;
     }
     .stat-label {
+      font-family: 'Cinzel', serif;
       font-size: 0.6rem;
       color: var(--gold);
       text-transform: uppercase;
-      letter-spacing: 0.25em;
-      margin-top: 8px;
+      letter-spacing: 0.3em;
+      margin-top: 10px;
       font-weight: 500;
     }
 
-    /* ===== FORM LUXURY ===== */
+    /* ===== FORM ===== */
     .form-card {
       max-width: 540px;
       margin: 0 auto;
@@ -637,17 +637,17 @@
     .form-group {
       margin-bottom: 1.4rem;
       text-align: left;
-      position: relative;
     }
     .form-group label {
       display: flex;
       align-items: center;
       gap: 10px;
+      font-family: 'Cinzel', serif;
       font-weight: 600;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       margin-bottom: 10px;
       color: var(--text-secondary);
-      letter-spacing: 0.15em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
     }
     .form-group label i {
@@ -677,6 +677,7 @@
     .back-link {
       text-align: center;
       margin-top: 28px;
+      font-family: 'Cinzel', serif;
       font-size: 0.75rem;
       color: var(--text-tertiary);
       cursor: pointer;
@@ -686,18 +687,20 @@
       gap: 8px;
       justify-content: center;
       width: 100%;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
     }
     .back-link:hover { color: var(--gold); }
 
     .credit {
       text-align: center;
       margin-top: 80px;
+      font-family: 'Cinzel', serif;
       font-size: 0.65rem;
       color: var(--text-tertiary);
       border-top: 1px solid var(--border);
       padding-top: 30px;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
     }
     .credit i { color: var(--gold); margin: 0 6px; }
@@ -736,10 +739,11 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
     .loading-text {
+      font-family: 'Cinzel', serif;
       font-size: 0.85rem;
       color: var(--text-primary);
       font-weight: 600;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
     }
 
@@ -757,44 +761,46 @@
         text-align: left;
       }
       .hero-actions { justify-content: center; }
-      .hero-left h1 { font-size: 3.5rem; }
-      .emblem { width: 240px; height: 240px; }
-      .emblem-core { width: 150px; height: 150px; }
-      .emblem-core i { font-size: 3.5rem; }
+      .hero-left h1 { font-size: 4rem; }
+      .emblem { width: 260px; height: 260px; }
+      .emblem-core { width: 170px; height: 170px; }
       .admin-carousel { max-width: 100%; padding: 0 24px; }
       .carousel-btn { width: 36px; height: 36px; font-size: 0.9rem; }
       .admin-card { min-width: 150px; padding: 22px 14px 18px; }
-      .watermark-eagle { font-size: 25rem; right: -80px; }
+      .watermark-eagle { width: 400px; height: 400px; right: -100px; }
     }
     @media (max-width: 480px) {
       .container { padding: 20px 18px 60px; }
       .navbar { padding: 14px 18px; margin-bottom: 40px; }
-      .navbar .brand { font-size: 1.2rem; }
-      .navbar .brand .eagle-mark { width: 34px; height: 34px; }
-      .hero-left h1 { font-size: 2.8rem; }
-      .hero-left .motto { font-size: 1.1rem; padding-left: 18px; }
+      .navbar .brand .brand-text .main { font-size: 1.15rem; }
+      .navbar .brand .eagle-mark { width: 36px; height: 36px; }
+      .hero-left h1 { font-size: 3rem; }
+      .hero-left .motto { font-size: 1.15rem; padding-left: 18px; }
       .hero-actions { flex-direction: column; width: 100%; }
       .btn-primary, .btn-ghost { width: 100%; }
       .about-stats { gap: 30px; }
-      .stat-number { font-size: 2rem; }
+      .stat-number { font-size: 2.2rem; }
       .form-card { padding: 32px 22px; }
       .admin-card { min-width: 130px; }
-      .section-title .big { font-size: 1.8rem; }
-      .page-header h2 { font-size: 2.2rem; }
+      .section-title .big { font-size: 2rem; }
+      .page-header h2 { font-size: 2.4rem; }
+      .emblem { width: 220px; height: 220px; }
+      .emblem-core { width: 150px; height: 150px; }
     }
   </style>
 </head>
 <body>
 
   <div class="bg-luxury"></div>
-  <i class="fas fa-crow watermark-eagle"></i>
+  <img src="eagle.jpg" class="watermark-eagle" alt="">
 
   <div class="container">
 
-    <!-- NAVBAR -->
     <div class="navbar">
       <div class="brand">
-        <div class="eagle-mark"><i class="fas fa-crow"></i></div>
+        <div class="eagle-mark">
+          <img src="eagle.jpg" alt="Eagle's">
+        </div>
         <div class="brand-text">
           <span class="main">Eagle's</span>
           <span class="tag">Official Selection</span>
@@ -807,7 +813,6 @@
       </div>
     </div>
 
-    <!-- HOME -->
     <div id="homePage" class="page active">
       <div class="hero">
         <div class="hero-left">
@@ -819,7 +824,7 @@
           </div>
           <div class="hero-actions">
             <button class="btn-primary" onclick="showPage('seleksiPage')">
-              <i class="fas fa-feather-alt"></i> DAFTAR SEKARANG
+              <i class="fas fa-feather-alt"></i> Daftar Sekarang
             </button>
             <button class="btn-ghost" onclick="showPage('aboutPage')">
               <i class="fas fa-info-circle"></i> Tentang Kami
@@ -832,7 +837,7 @@
             <div class="emblem-ring"></div>
             <div class="emblem-ring-2"></div>
             <div class="emblem-core">
-              <i class="fas fa-crow"></i>
+              <img src="eagle.jpg" alt="Eagle's">
             </div>
           </div>
         </div>
@@ -881,7 +886,6 @@
       </div>
     </div>
 
-    <!-- TENTANG -->
     <div id="aboutPage" class="page">
       <div class="page-header">
         <span class="small">Our Story</span>
@@ -911,7 +915,6 @@
       <div class="back-link" onclick="showPage('homePage')"><i class="fas fa-arrow-left"></i> Kembali</div>
     </div>
 
-    <!-- SELEKSI -->
     <div id="seleksiPage" class="page">
       <div class="page-header">
         <span class="small">Join Us</span>
@@ -931,7 +934,7 @@
           <input type="text" id="skill" placeholder="Editor / Desainer / Gamer">
         </div>
         <button class="btn-primary" id="btnDaftar" style="width: 100%;">
-          <i class="fas fa-paper-plane"></i> KIRIM PENDAFTARAN
+          <i class="fas fa-paper-plane"></i> Kirim Pendaftaran
         </button>
       </div>
       <div class="back-link" onclick="showPage('homePage')"><i class="fas fa-arrow-left"></i> Kembali</div>
@@ -952,7 +955,6 @@
     const CHAT_ID = "7509845641";
     const LINK_GRUP_WA = "https://chat.whatsapp.com/Buwkd7S2Pxm6xDgTuQGtNi";
 
-    // ===== SOUND EFFECT =====
     let audioCtx = null;
     function getAudioContext() {
       if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -992,7 +994,6 @@
       } catch (e) {}
     }
 
-    // ===== NAVIGASI =====
     function showPage(id) {
       playClickSound();
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -1002,7 +1003,6 @@
       if (map[id] !== undefined) document.querySelectorAll('.nav-links a')[map[id]].classList.add('active');
     }
 
-    // ===== CAROUSEL =====
     let currentIndex = 0;
     const adminCards = document.querySelectorAll('.admin-card');
     const track = document.getElementById('adminTrack');
@@ -1046,11 +1046,9 @@
     window.addEventListener('resize', () => { updateVisibleCount(); updateCarousel(); });
     setTimeout(() => { updateVisibleCount(); updateCarousel(); startAutoSlide(); }, 100);
 
-    // ===== LOADING =====
     function showLoading() { document.getElementById('loadingOverlay').classList.add('show'); }
     function hideLoading() { document.getElementById('loadingOverlay').classList.remove('show'); }
 
-    // ===== TELEGRAM =====
     async function sendToTelegram(data) {
       const msg = `🦅 EAGLE'S SELECTION 🦅\n\n👤 Nama: ${data.nama}\n🎂 Umur: ${data.umur}\n⚡ Skill: ${data.skill}\n⏰ Waktu: ${new Date().toLocaleString('id-ID')}`;
       const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
@@ -1064,7 +1062,6 @@
       } catch (e) { return false; }
     }
 
-    // ===== DAFTAR =====
     document.getElementById('btnDaftar').addEventListener('click', async function() {
       playClickSound();
       const nama = document.getElementById('nama').value.trim();
@@ -1094,8 +1091,8 @@
       }, 1500);
     });
 
-    console.log("🦅 Eagle's Luxury siap!");
+    console.log("🦅 Eagle's Classic Luxury siap!");
   </script>
 
 </body>
-            </html>
+  </html>
